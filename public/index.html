@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penerjemah Bahasa Jawa || hanz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-language"></i> Translate Jawa</h1>
+            <p>Penerjemah Bahasa & Aksara Jawa Lengkap</p>
+        </header>
+
+        <div class="mode-switcher">
+            <button class="active" onclick="switchMode('basa')">Basa (Bahasa)</button>
+            <button onclick="switchMode('aksara')">Hanacaraka (Aksara)</button>
+        </div>
+
+        <div id="basa-section" class="input-group">
+            <div class="controls">
+                <select id="lang-from" onchange="updateOptions()">
+                    <option value="indo">Indonesia</option>
+                    <option value="jawa">Jawa (Ngoko/Krama)</option>
+                </select>
+                
+                <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                
+                <select id="lang-to">
+                    </select>
+            </div>
+
+            <textarea id="input-text" placeholder="Ketik teks di sini..."></textarea>
+            
+            <button id="btn-translate" onclick="doTranslate()">
+                Terjemahkan
+            </button>
+        </div>
+
+        <div id="aksara-section" class="input-group" style="display: none;">
+            <div class="controls">
+                <select id="aksara-direction">
+                    <option value="toJavanese">Latin ke Aksara Jawa</option>
+                    <option value="toLatin">Aksara Jawa ke Latin</option>
+                </select>
+            </div>
+
+            <textarea id="input-aksara" placeholder="Ketik teks latin..."></textarea>
+            
+            <button id="btn-aksara" onclick="doAksara()">
+                Konversi Aksara
+            </button>
+        </div>
+
+        <div class="output-group">
+            <label>Hasil:</label>
+            <div class="result-box" id="result-box">
+                <span id="result-text" class="placeholder">Hasil terjemahan akan muncul di sini...</span>
+                <button class="copy-btn" onclick="copyText()"><i class="fa-regular fa-copy"></i></button>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading">Memproses...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
